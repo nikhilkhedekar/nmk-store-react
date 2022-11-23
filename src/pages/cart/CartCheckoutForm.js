@@ -44,7 +44,7 @@ const CartCheckoutForm = () => {
                 elements,
                 confirmParams: {
                     // Make sure to change this to your payment completion page
-                    return_url: "http://localhost:3000/stripe/success",
+                    return_url: "https://gregarious-kitsune-241b1e.netlify.app/stripe/success",
                 },
             });
             console.log("paymentSuccess", paymentSuccess);
