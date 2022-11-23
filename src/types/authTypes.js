@@ -1,0 +1,7 @@
+export const REGISTER_USER = "REGISTER_USER";
+export const VERIFY_EMAIL = "VERIFY_EMAIL";
+export const LOGIN_USER = "LOGIN_USER";
+export const CURRENT_USER = "CURRENT_USER";
+export const LOGOUT_USER = "LOGOUT_USER";
+export const FORGOT_PASSWORD = "FORGOT_PASSWORD";
+export const RESET_PASSWORD = "RESET_PASSWORD";

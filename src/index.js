@@ -1,17 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { AuthProvider } from './providers/authProvider';
+import { store } from './store/store';
+import { ApolloProvider } from '@apollo/client';
+import { apolloClient } from './apolloClient';
+import { MapProvider } from "react-map-gl";
+import { BrowserRouter } from 'react-router-dom';
+
+import 'mapbox-gl/dist/mapbox-gl.css';
+import AlanProvider from './providers/alanProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={apolloClient} >
+      <AuthProvider>
+        <Provider store={store} >
+          <MapProvider>
+            <BrowserRouter>
+              <AlanProvider>
+                <App />
+              </AlanProvider>
+            </BrowserRouter>
+          </MapProvider>
+        </Provider>
+      </AuthProvider>
+    </ApolloProvider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
